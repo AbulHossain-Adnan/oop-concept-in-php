@@ -50,3 +50,30 @@ echo $obj->test();
 
 ?>
 <p> ayvabe function call set kore privet ba protected value retrive kora jai</p>
+
+
+
+
+
+
+<?php 
+class car{
+	protected $color;
+
+	function __construct(){
+		$this->color="red";
+
+	}
+}
+class car2 extends car{
+	function check(){
+		echo $this->color;
+	}
+}
+
+
+$object=new car2();
+$object->check();
+?>
+
+<p>protected can access inside class and chaild class</p>
