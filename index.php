@@ -28,7 +28,7 @@
 ---------------
 <p>
 
-class frute{<br><br>
+class frute{ <br><br>
 
   attribute\\<br>
 
