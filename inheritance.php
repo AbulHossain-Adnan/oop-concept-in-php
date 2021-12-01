@@ -1,15 +1,69 @@
 <?php 
-class frute1{
-	function __construct(){
-		echo "__construct1";
+class employee{
+	public $name;
+	public $age;
+	public $salary;
+	function __construct($na,$a,$s){
+		$this->name =$na;
+		$this->age =$a;
+		$this->salary=$s;
+	}
+
+	function info(){
+		echo "the name of user is::"." ".$this->name."<br>";
+		echo "the age of user is::"." ".$this->age."<br>";
+		echo "the salary of user is::".".".$this->salary."<br>";
 	}
 }
-class frute2 extends frute1{
 
 
-}
-$obj=new frute2();
 
 ?>
-<p> when one class extends onother class thats call inheritance.class frute1 is parrent class and frute2 is chaild class that extends first class</p>
-<p> we create object of chaild class and can access parrent class but if chaild class will have same constactore then chaild class will print</p>
+
+
+
+
+
+<?php
+class manager extends employee{
+	public $car =205;
+	public $tea =500;
+	public $totalsalary;
+	
+function info(){
+	
+	$this->totalsalary= $this->car + $this->tea + $this->salary;
+		echo "the name of user is::"." ".$this->name."<br>";
+		echo "the age of user is::"." ".$this->age."<br>";
+		echo "the salary of manager is::".".".$this->totalsalary."<br>";
+	}
+
+} 
+?>
+
+
+
+
+
+
+<?php
+$obj1= new employee('adnan',22,250000);
+$obj1->info();
+
+$obj2= new manager('adnan',22,250000);
+$obj2->info();
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
