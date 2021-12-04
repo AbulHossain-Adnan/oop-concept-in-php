@@ -1,0 +1,190 @@
+In this tutorial we will learn about interface in PHP.
+What is Interface?
+
+In OOP, an interface is a collection of public methods that must be implemented by the classes that use them.
+How to create an interface?
+
+We use the interface keyword to create an interface.
+
+In the following example we have created an interface ISample having two public methods foo() and wow().
+
+An interface must always contain public methods.
+
+interface ISample {
+	
+	public function foo();
+
+	public function wow($text);
+
+}
+
+It is a convention to put capital I before the name of an interface. You can also put small i.
+How to implement an interface?
+
+We use the implements keyword when we want a class to implement an interface.
+
+In the following example we have an interface ISample having public methods foo() and wow() and we have a class Po that implements the interface ISample.
+
+//interface
+interface ISample {
+	
+	public function foo();
+
+	public function wow($text);
+
+}
+
+
+//class implementing the interface
+class Po implements ISample {
+	
+	//implement methods of ISample
+
+	public function foo() {
+		printf("Inside foo...");
+	}
+
+	public function wow($text) {
+		printf("Inside wow... text = %s", $text);
+	}
+
+}
+
+
+//creating object of Po
+$obj = new Po();
+
+$obj->foo();	//this will print "Inside foo..."
+
+$obj->wow("Hello");	//this will print "Inside wow... text = Hello"
+
+Implementing multiple interfaces
+
+A class can implement multiple interfaces by separating them using comma.
+
+In the following example we have two interfaces ISample and IHappy and a class Po that implements the two interfaces.
+
+//interfaces
+interface ISample {
+	public function foo();
+}
+
+interface IHappy {
+	public function wow();
+}
+
+
+//class implementing the interfaces
+class Po implements ISample, IHappy {
+	
+	//implementing interface methods
+
+	public function foo() {
+		printf("Inside foo...");
+	}
+
+	public function wow() {
+		printf("Inside wow...");
+	}
+}
+
+
+//creating object of Po
+$obj = new Po();
+
+$obj->foo();	//this prints "Inside foo..."
+
+$obj->wow();	//this prints "Inside wow..."
+
+Interface can extend other Interface
+
+We can use the extends keyword to extend (inherit) an interface.
+
+In the following example interface ISample extends IHappy and a class Po implements the IHappy interface.
+
+interface ISample {
+	public function foo();
+}
+
+interface IHappy extends ISample {
+	public function wow();
+}
+
+//class implementing the interface
+class Po implements IHappy {
+	
+	public function foo() {
+		printf("inside foo...");
+	}
+
+	public function wow() {
+		printf("inside wow...");
+	}
+}
+
+Multiple inheritance of interface
+
+An interface can inherit multiple interfaces by separating them by comma.
+
+In the following example we have an interface IDeveloper that inherits two interfaces IFrontend and IBackend. Then we have a class Po then implements the IDeveloper interface.
+
+//interfaces
+interface IFrontend {
+	public function f_end();
+}
+
+interface IBackend {
+	public function b_end();
+}
+
+//interface inheriting multiple interfaces
+interface IDeveloper extends IFrontend, IBackend {
+	public function dev();
+}
+
+
+//class implementing interface
+class Po implements IDeveloper {
+	
+	public function f_end() {
+		printf("Inside f_end...");
+	}
+
+	public function b_end() {
+		printf("Inside b_end...");
+	}
+
+	public function dev() {
+		printf("Inside dev...");
+	}
+}
+
+Interface with constants
+
+We can also have constants inside an interface but we can't override them in other class and interface.
+
+In the following example we have an interface ISample having a constant HAPPY_CODE. And we have a class Po that implements ISample.
+
+//interface with constant
+interface ISample {
+	
+	const HAPPY_CODE = 10;
+
+	public function foo();
+	
+}
+
+//class implements an interface
+class Po implements ISample {
+	
+	public function foo() {
+		printf("Constant HAPPY_CODE = %d", Po::HAPPY_CODE);
+	}
+	
+}
+
+
+//creating object of Po
+$obj = new Po();
+
+$obj->foo();	//this will print "Constant HAPPY_CODE = 10"
