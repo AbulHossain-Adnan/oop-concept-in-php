@@ -1,0 +1,140 @@
+In this tutorial we will learn about abstraction in PHP.
+What is Abstraction?
+--------------------
+
+In OOP, abstraction is a concept in which a class has methods without implementation. 
+The idea is to have a template and let the child class that inherits the parent class 
+implement the method.
+How to create an abstract method?
+
+We use the keyword abstract before the method name when we want to create an abstract 
+method. If a class has an abstract method then we also add the abstract keyword before 
+the class.
+
+In the following example we have an abstract method foo() and so we have added abstract 
+keyword to the class.
+
+abstract class Sample {
+	
+	//abstract method
+	public abstract function foo();
+
+}
+
+When we create an abstract class we are actually creating a template.
+We can't instantiate an abstract class
+
+Since an abstract class is just a template without completely implemented methods hence
+ it is not allowed to create its object.
+
+//abstract class
+abstract class Sample {
+	
+}
+
+//this will give error - can't create object of an abstract class
+$obj = new Sample();
+
+An abstract class can have fully implemented methods
+
+It is allowed to have fully implemented methods inside an abstract class. In the 
+following example we have an abstract class Sample with an abstract method foo()
+ and fully implemented method hello().
+
+//abstract class
+abstract class Sample {
+	
+	//abstract method
+	public abstract function foo();
+
+	//method
+	public function hello() {
+		printf("Hello World!");
+	}
+
+}
+
+Inherit an abstract class
+
+When an abstract class is inherited by the child class, the abstract method of the 
+parent class must be implemented in the child class.
+
+If the child class is not implementing an abstract method of the parent class then
+ the child class must be declared abstract.
+Child class implementing abstract method
+
+In the following example we have an abstract parent class Sample having an abstract
+ method foo() and add(). We have a child class Po which extends the parent class Sample
+ and implements the abstract method foo() and add().
+
+//abstract parent class
+abstract class Sample {
+	
+	//abstract method
+	public abstract function foo();
+
+	public abstract function add($x, $y);
+
+}
+
+//child class
+class Po extends Sample {
+	
+	//implementing abstract methods of parent class
+
+	public function foo() {
+		printf("Hello World!");
+	}
+
+	public function add($x, $y) {
+		return ($x + $y);
+	}
+
+}
+
+//create object of the Po class
+$obj = new Po();
+
+$obj->foo();	//this will print "Hello World!"
+
+$sum = $obj->add(10, 20);	//this will return 30
+
+printf("Sum = %d", $sum);	//this will print "Sum = 30"
+
+Child class not implementing abstract method
+
+It is not mandatory for the child class to implement an abstract method of a parent
+ class.
+
+If a child class is not implementing an abstract method of a parent class then the 
+child class must be declared abstract.
+
+In the following example we have a parent class Sample having abstract method foo()
+ and hello(). We have a child class Po that extends the parent class and only
+ implements the abstract method hello() and does not implement the abstract method
+ foo().
+
+Since the child class Po has one unimplemented abstract method foo() hence we have
+ to declare the class Po as abstract class.
+
+//abstract parent class
+abstract class Sample {
+	
+	//abstract method
+	public abstract function foo();
+
+	public abstract function hello();
+}
+
+/**
+ * child class Po set to abstract
+ * as it is not implementing the abstract method foo()
+ */
+abstract class Po extends Sample {
+	
+	//implemented method
+	public function hello() {
+		printf("Hello World!");
+	}
+
+}
