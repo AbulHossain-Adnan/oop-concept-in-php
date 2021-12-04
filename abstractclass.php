@@ -3,3 +3,9 @@
 3.abstract could not create object.
 4.abstract class ,child class must contain abstract function.
 
+<?php
+abstract class visha{
+	function show();
+} 
+?>
+

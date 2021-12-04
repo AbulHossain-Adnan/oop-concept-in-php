@@ -16,14 +16,7 @@ class employee{
 	}
 }
 
-
-
 ?>
-
-
-
-
-
 <?php
 class manager extends employee{
 	public $car =205;
@@ -40,10 +33,6 @@ function info(){
 
 } 
 ?>
-
-
-
-
 
 
 <?php
